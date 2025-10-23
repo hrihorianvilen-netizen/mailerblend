@@ -160,7 +160,7 @@ export default function SmsApiPage() {
 
                       return (
                         <>
-                          If you buy <span className="font-semibold">{credits.toLocaleString()} Credits</span>, you'll be able to send roughly{' '}
+                          If you buy <span className="font-semibold">{credits.toLocaleString()} Credits</span>, {`you'll be able to send roughly`}{' '}
                           <span className="font-semibold">{messages.toLocaleString()} Messages</span> at a cost of{' '}
                           <span className="font-semibold">${totalInclVAT} Incl. VAT</span>. This means that each message is estimated to cost{' '}
                           <span className="font-semibold">{costPerMessage}c Excl. VAT</span>, network dependent.
