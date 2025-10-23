@@ -1,0 +1,42 @@
+{
+  "name": "Mailerblend - Email & SMS Marketing Platform",
+  "short_name": "Mailerblend",
+  "description": "All-in-one email & SMS platform for SMBs. Build, automate, and analyze campaigns with no code.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8A42F3",
+  "icons": [
+    {
+      "src": "/Mailerblend-favicon-16×16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/Mailerblend-favicon-32×32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/Mailerblend-favicon-64×64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/Mailerblend-favicon-128×128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/Mailerblend-favicon-256×256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/Mailerblend-favicon-512×512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

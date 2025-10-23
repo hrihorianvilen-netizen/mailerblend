@@ -1,0 +1,18 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /login/
+Disallow: /signup/
+Disallow: /preview/
+Disallow: /sandbox/
+
+# Host
+Host: https://www.mailerblend.com
+
+# Sitemaps
+Sitemap: https://www.mailerblend.com/sitemap.xml
+Sitemap: https://www.mailerblend.com/sitemap-pages.xml
+Sitemap: https://www.mailerblend.com/sitemap-features.xml
