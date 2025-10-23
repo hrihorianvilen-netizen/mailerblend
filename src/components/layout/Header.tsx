@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, User, ChevronDown } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const featuresLinks = [
   { label: 'Email Marketing Automation', href: '/email-marketing-automation' },
@@ -21,6 +22,26 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [mobileFeaturesOpen, setMobileFeaturesOpen] = useState(false);
+
+  const featuresRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (featuresRef.current && !featuresRef.current.contains(event.target as Node)) {
+        setFeaturesOpen(false);
+      }
+    };
+
+    if (featuresOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [featuresOpen]);
 
   return (
     <header className="bg-header-bg border-gray-400 sticky top-0 z-50">
@@ -40,33 +61,39 @@ export const Header = () => {
               Home
             </Link>
 
-            {/* Features Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setFeaturesOpen(true)}
-              onMouseLeave={() => setFeaturesOpen(false)}
-            >
+            <div className="relative" ref={featuresRef}>
               <button
+                onClick={() => setFeaturesOpen(!featuresOpen)}
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 Features
-                <ChevronDown className={`w-4 h-4 transition-transform ${featuresOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${featuresOpen ? 'rotate-180' : ''}`}
+                />
               </button>
 
-              {/* Dropdown Menu */}
-              {featuresOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                  {featuresLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <AnimatePresence>
+                {featuresOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2, ease: 'easeInOut' }}
+                    className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+                  >
+                    {featuresLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
+                        onClick={() => setFeaturesOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <Link
@@ -123,7 +150,9 @@ export const Header = () => {
                   className="flex items-center justify-between w-full text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 >
                   Features
-                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileFeaturesOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${mobileFeaturesOpen ? 'rotate-180' : ''}`}
+                  />
                 </button>
                 {mobileFeaturesOpen && (
                   <div className="mt-2 ml-4 space-y-2">
