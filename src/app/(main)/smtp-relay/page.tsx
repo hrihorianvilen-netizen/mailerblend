@@ -22,7 +22,7 @@ export default function SmtpRelayPage() {
             </p>
 
             <div className="flex gap-4">
-              <Link href='/signup' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+              <Link href='/pricing' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
                 Get Started
               </Link>
               <Link href="#" className="inline-flex items-center gap-2 bg-gray-100 text-gray-900 border border-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
@@ -46,7 +46,7 @@ export default function SmtpRelayPage() {
                 <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
                   {`Mailjet's free SMTP server integrates easily with any system. You can update your configuration using our SMTP server, one of the supported ports, and simply authenticate with your credentials (like an API key or secret key).`}
                 </p>
-                <Link href='/signup' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+                <Link href='/pricing' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
                   Get Started
                 </Link>
               </div>
@@ -109,9 +109,11 @@ export default function SmtpRelayPage() {
                   With our SMTP relay, you will not only increase your chance of landing in the inbox, but your emails will get there faster. Easily set up SPF, DMARC, and DKIM records to authenticate your domain and start sending. Our deliverability support team will be there every step of the way to help get you set up, monitor, and maintain high deliverability rates.
                 </p>
 
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  Get Started
-                </Button>
+                <Link href='/pricing' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
 
               {/* Right - Image */}
@@ -183,9 +185,11 @@ export default function SmtpRelayPage() {
                   {`Mailjet’s real-time dashboard makes it easy for you to browse, filter and troubleshoot key performance indicators like opens, clicks, bounces, and unsubscribes, and more. You can also easily integrate in your systems to receive each event notification in real time thanks to webhooks.`}
                 </p>
 
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  Get Started
-                </Button>
+                <Link href='/pricing' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -206,9 +210,11 @@ export default function SmtpRelayPage() {
                   Our advanced templating language allows you to add more detailed personalization and dynamic content to your emails. Send the right content to each of your recipients to achieve even higher engagement rates.
                 </p>
 
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  Get Started
-                </Button>
+                <Link href='/pricing' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
 
               {/* Right - Image */}

@@ -88,7 +88,7 @@ export default function ReportingAnalyticsPage() {
           description: 'Start sending and tracking your emails with our easy API integration process and clean documentation.',
         },
         {
-          iconName: `/reporting/svg/smile.svg'`,
+          iconName: `/reporting/svg/smile.svg`,
           title: 'Dynamic email templates',
           description: 'Build one-to-one customer relationships on a mass scale using a single email template.',
         },
