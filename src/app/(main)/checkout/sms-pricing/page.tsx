@@ -142,6 +142,7 @@ export default function SMSCheckoutPage() {
       currencySymbol: currencySymbols[currency] || '€',
     });
   }, [searchParams]);
+  
 
   // Calculate addon total
   const addonsTotal = selectedAddons.reduce((total, addonId) => {
