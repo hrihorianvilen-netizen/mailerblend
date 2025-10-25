@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Shield, Lock, CheckCircle2, ArrowLeft, AlertCircle, Server, Users, Star, Database, Palette } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent } from '@/components/ui/Card';
 
-export default function SMSCheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     // Contact Information
@@ -58,11 +58,11 @@ export default function SMSCheckoutPage() {
   });
 
   // Currency conversion rates and symbols
-  const currencyRates: { [key: string]: number } = {
-    USD: 1,
-    EUR: 0.92,
-    GBP: 0.79,
-  };
+  // const currencyRates: { [key: string]: number } = {
+  //   USD: 1,
+  //   EUR: 0.92,
+  //   GBP: 0.79,
+  // };
 
   const currencySymbols: { [key: string]: string } = {
     USD: '$',
@@ -142,7 +142,7 @@ export default function SMSCheckoutPage() {
       currencySymbol: currencySymbols[currency] || '€',
     });
   }, [searchParams]);
-  
+
 
   // Calculate addon total
   const addonsTotal = selectedAddons.reduce((total, addonId) => {
@@ -877,5 +877,20 @@ export default function SMSCheckoutPage() {
         </Container>
       </Section>
     </div>
+  );
+}
+
+export default function SMSCheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#198DA7]"></div>
+          <p className="mt-4 text-gray-600">Loading checkout...</p>
+        </div>
+      </div>
+    }>
+      <CheckoutContent />
+    </Suspense>
   );
 }
