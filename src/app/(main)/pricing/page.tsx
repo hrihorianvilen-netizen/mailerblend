@@ -343,24 +343,7 @@ export default function PricingPage() {
                 Sms Pricing
               </h2>
               <p className="text-sm sm:text-base text-gray-700 max-w-2xl mx-auto">
-                {(() => {
-                  const credits = sendingPlan === 0 ? 4000 : sendingPlan;
-                  const messages = Math.floor(credits / 1.496); // 1.496 credits per message ≈ 3340 msgs per 5000 credits
-                  const costPerCredit = 0.037752; // €188.76 / 5000 credits
-                  const totalCost = credits * costPerCredit;
-                  const costPerMessage = (totalCost / messages).toFixed(2); // Euro per message
-                  const vatMultiplier = 1.23; // 23% VAT (EU example)
-                  const totalInclVAT = (totalCost * vatMultiplier).toFixed(2);
-
-                  return (
-                    <>
-                      If you buy <span className="font-semibold">{credits.toLocaleString()} Credits</span>, {`you'll be able to send roughly`}{' '}
-                      <span className="font-semibold">{messages.toLocaleString()} Messages</span> at a cost of{' '}
-                      <span className="font-semibold">€{totalInclVAT} Incl. VAT</span>. This means that each message is estimated to cost{' '}
-                      <span className="font-semibold">{costPerMessage}c Excl. VAT</span>, network dependent.
-                    </>
-                  );
-                })()}
+                {`If you're on a Standard plan, or you're sending more texts than usual, you'll need to buy SMS credits. How much you spend depends on the destination country. Estimate the cost below.`}
               </p>
             </div>
 
@@ -449,7 +432,26 @@ export default function PricingPage() {
 
               {/* Get a Quote Section */}
               <div className="text-center">
+                <p className="text-sm sm:text-base text-gray-700 max-w-2xl mx-auto mb-4 sm:mb-6">
+                  {(() => {
+                    const credits = sendingPlan === 0 ? 4000 : sendingPlan;
+                    const messages = Math.floor(credits / 1.496); // 1.496 credits per message ≈ 3340 msgs per 5000 credits
+                    const costPerCredit = 0.037752; // €188.76 / 5000 credits
+                    const totalCost = credits * costPerCredit;
+                    const costPerMessage = (totalCost / messages).toFixed(2); // Euro per message
+                    const vatMultiplier = 1.23; // 23% VAT (EU example)
+                    const totalInclVAT = (totalCost * vatMultiplier).toFixed(2);
 
+                    return (
+                      <>
+                        If you buy <span className="font-semibold">{credits.toLocaleString()} Credits</span>, {`you'll be able to send roughly`}{' '}
+                        <span className="font-semibold">{messages.toLocaleString()} Messages</span> at a cost of{' '}
+                        <span className="font-semibold">€{totalInclVAT} Incl. VAT</span>. This means that each message is estimated to cost{' '}
+                        <span className="font-semibold">{costPerMessage}c Excl. VAT</span>, network dependent.
+                      </>
+                    );
+                  })()}
+                </p>
 
                 <Link href={`/checkout/sms-pricing?credits=${sendingPlan === 0 ? 4000 : sendingPlan}&currency=${currency}`}>
                   <Button size="lg" className="bg-[#3D4F6D] text-white hover:bg-[#2D3F5D] px-12">
