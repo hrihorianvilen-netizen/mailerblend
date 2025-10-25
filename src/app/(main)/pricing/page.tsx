@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
@@ -266,15 +267,17 @@ export default function PricingPage() {
                     ))}
                   </ul>
 
-                  <button
-                    className={`w-full py-3 rounded-lg font-semibold transition-colors ${
-                      tier.highlighted
-                        ? 'bg-[#7DD3C0] text-[#3D4F6D] hover:bg-[#6CC3B0]'
-                        : 'bg-[#F3E8FF] text-[#8B5CF6] hover:bg-[#E9D5FF]'
-                    }`}
-                  >
-                    Choose plan
-                  </button>
+                  <Link href={`/checkout/sms-pricing?credits=5000&currency=${currency}`}>
+                    <button
+                      className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+                        tier.highlighted
+                          ? 'bg-[#7DD3C0] text-[#3D4F6D] hover:bg-[#6CC3B0]'
+                          : 'bg-[#F3E8FF] text-[#8B5CF6] hover:bg-[#E9D5FF]'
+                      }`}
+                    >
+                      Choose plan
+                    </button>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -447,9 +450,11 @@ export default function PricingPage() {
                   })()}
                 </p>
 
-                <Button size="lg" className="bg-[#3D4F6D] text-white hover:bg-[#2D3F5D] px-12">
-                  Get a Quote
-                </Button>
+                <Link href={`/checkout/sms-pricing?credits=${sendingPlan === 0 ? 4000 : sendingPlan}&currency=${currency}`}>
+                  <Button size="lg" className="bg-[#3D4F6D] text-white hover:bg-[#2D3F5D] px-12">
+                    Get a Quote
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -538,9 +543,11 @@ export default function PricingPage() {
                   </a>
                 </div>
 
-                <Button size="lg" variant="outline" className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-50">
-                  Get Started
-                </Button>
+                <Link href={`/checkout/sms-pricing?credits=${emailCredits}&currency=${currency}`}>
+                  <Button size="lg" variant="outline" className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-50">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

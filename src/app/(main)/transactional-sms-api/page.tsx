@@ -169,9 +169,11 @@ export default function SmsApiPage() {
                     })()}
                   </p>
 
-                  <Button size="lg" className="bg-[#3D4F6D] text-white hover:bg-[#2D3F5D] px-12">
-                    Get a Quote
-                  </Button>
+                  <Link href={`/checkout/sms-pricing?credits=${sendingPlan === 0 ? 4000 : sendingPlan}&currency=${currency}`}>
+                    <Button size="lg" className="bg-[#3D4F6D] text-white hover:bg-[#2D3F5D] px-12">
+                      Get a Quote
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
