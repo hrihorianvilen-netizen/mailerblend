@@ -341,7 +341,7 @@ export default function SMSCheckoutPage() {
                         <div className="space-y-6">
                           <div>
                             <h2 className="text-2xl font-bold text-gray-900 mb-2">Contact Information</h2>
-                            <p className="text-gray-600">We'll use this to send you order confirmations and updates</p>
+                            <p className="text-gray-600">{`We'll use this to send you order confirmations and updates`}</p>
                           </div>
 
                           <div className="grid md:grid-cols-2 gap-4">
@@ -480,7 +480,7 @@ export default function SMSCheckoutPage() {
                         <div className="space-y-6">
                           <div>
                             <h2 className="text-2xl font-bold text-gray-900 mb-2">Enhance Your Package</h2>
-                            <p className="text-gray-600">All add-ons are pre-selected. Uncheck any you don't want to include.</p>
+                            <p className="text-gray-600">{`All add-ons are pre-selected. Uncheck any you don't want to include.`}</p>
                           </div>
 
                           <div className="grid md:grid-cols-2 gap-4">
@@ -825,7 +825,7 @@ export default function SMSCheckoutPage() {
 
                       {/* What's Included */}
                       <div className="pt-4 border-t border-gray-200">
-                        <h4 className="font-semibold text-gray-900 mb-3 text-sm">What's Included:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-3 text-sm">{`What's Included`}:</h4>
                         <ul className="space-y-2 text-sm text-gray-700">
                           <li className="flex items-start gap-2">
                             <CheckCircle2 className="w-4 h-4 text-[#198DA7] flex-shrink-0 mt-0.5" />
@@ -865,7 +865,7 @@ export default function SMSCheckoutPage() {
                     <div className="flex items-center gap-3 text-sm text-gray-600">
                       <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <p className="text-xs">
-                        <strong className="text-gray-900">30-day money-back guarantee.</strong> If you're not satisfied, we'll refund your purchase.
+                        <strong className="text-gray-900">30-day money-back guarantee.</strong> {`If you're not satisfied, we'll refund your purchase.`}
                       </p>
                     </div>
                   </div>
