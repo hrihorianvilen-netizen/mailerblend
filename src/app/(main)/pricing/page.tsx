@@ -32,7 +32,7 @@ export default function PricingPage() {
   // Function to convert and format price
   const formatPrice = (priceUSD: number): string => {
     const convertedPrice = priceUSD * currencyRates[currency];
-    return `${currencySymbols[currency]}${Math.round(convertedPrice)}`;
+    return `${Math.round(convertedPrice)}${currencySymbols[currency]}`;
   };
 
   const emailPricingTiers = [
@@ -335,7 +335,7 @@ export default function PricingPage() {
       </Section>
 
       {/* SMS Pricing Calculator */}
-      <Section className="bg-white">
+      <Section id="sms-credits" className="bg-white">
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
@@ -455,7 +455,7 @@ export default function PricingPage() {
 
                 <Link href={`/checkout/sms-pricing?credits=${sendingPlan === 0 ? 4000 : sendingPlan}&currency=${currency}`}>
                   <Button size="lg" className="bg-[#3D4F6D] text-white hover:bg-[#2D3F5D] px-12">
-                    Get a Quote
+                    {`Activate Credits & Start Today`}
                   </Button>
                 </Link>
               </div>
@@ -484,7 +484,7 @@ export default function PricingPage() {
       </Section>
 
       {/* Flexible Email Credits */}
-      <Section className="bg-white">
+      <Section id="email-credits" className="bg-white">
         <Container>
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start px-4 sm:px-0">
@@ -496,25 +496,15 @@ export default function PricingPage() {
                 <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
                   Send emails on your schedule, with our pay as you go plan purchase credits when needed with no recurring payments-perfect for infrequent senders
                 </p>
-                <ul className="space-y-3 sm:space-y-4">
-                  <li className="flex items-start justify-center md:justify-start">
-                    <div className="w-2 h-2 rounded-full bg-[#FF6B9D] flex-shrink-0 mt-2.5 mr-3"></div>
-                    <span className="text-gray-700 text-sm sm:text-base md:text-lg">The same feature as the stander tier</span>
-                  </li>
-                  <li className="flex items-start justify-center md:justify-start">
-                    <div className="w-2 h-2 rounded-full bg-[#FF6B9D] flex-shrink-0 mt-2.5 mr-3"></div>
-                    <span className="text-gray-700 text-sm sm:text-base md:text-lg">Up to 3 users per account .</span>
-                  </li>
-                </ul>
               </div>
 
               {/* Right - Price Card */}
-              <div className="bg-white rounded-2xl border-2 border-gray-300 p-6 sm:p-8">
-                <div className="text-center mb-6">
+              <div className="bg-white rounded-2xl border-2 border-gray-300 p-3 sm:p-4">
+                <div className="text-start mb-2">
                   <p className="text-5xl font-bold text-gray-900 mb-1">{currencySymbols[currency]}{((emailCredits * 5 / 1000) * currencyRates[currency]).toFixed(0)}</p>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-2">
                   <div className="flex justify-between items-center mb-3">
                     <label className="text-sm font-semibold text-gray-700">Emails</label>
                     <span className="text-lg font-bold text-gray-900">{emailCredits}</span>
@@ -532,25 +522,55 @@ export default function PricingPage() {
 
                 <div className="bg-gray-50 rounded-lg p-4 mb-6 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-gray-600" />
+                    <Check className="w-5 h-5 text-red-600" />
                     <span className="text-sm text-gray-700">{formatPrice(5)} per 1000 emails</span>
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-6 flex flex-row justify-between items-center">
-                  <button className="w-1/2 py-3 bg-[#3D4F6D] text-white rounded-lg font-semibold hover:bg-[#2D3F5D] transition-colors border-2 border-[#3D4F6D]">
-                    Save Up to {formatPrice(146)}
-                  </button>
-                  <a href="#" className="w-1/2 block text-center text-sm text-[#198DA7] font-medium hover:underline">
-                    Learn more
-                  </a>
-                </div>
 
                 <Link href={`/checkout/sms-pricing?credits=${emailCredits}&currency=${currency}`}>
-                  <Button size="lg" variant="outline" className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-50">
-                    Get Started
+                  <Button size="lg" variant="outline" className="w-full border-2 border-gray-900 text-gray-900 rounded-full px-6 py-3 font-semibold">
+                    {`Start Sending Instantly`}
                   </Button>
                 </Link>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 mt-6 gap-2 md:gap-4 lg:gap-6 items-start px-4 sm:px-0">
+              <div className="flex items-center gap-2 text-center">
+                <Check className="w-7 h-7 text-[#198DA7]" />
+                <div className="text-start">
+                  <p className="text-md font-bold text-gray-900">{`Ready-to-use email designs`}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-center">
+                <Check className="w-7 h-7 text-[#198DA7]" />
+                <div className="text-start">
+                  <p className="text-md font-bold text-gray-900">{`Easy visual editor`}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-center">
+                <Check className="w-7 h-7 text-[#198DA7]" />
+                <div className="text-start">
+                  <p className="text-md font-bold text-gray-900">{`No limit on your audience size`}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-center">
+                <Check className="w-7 h-7 text-[#198DA7]" />
+                <div className="text-start">
+                  <p className="text-md font-bold text-gray-900">{`Send without a brand logo`}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-center">
+                <Check className="w-7 h-7 text-[#198DA7]" />
+                <div className="text-start">
+                  <p className="text-md font-bold text-gray-900">{`Track performance with data`}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-center">
+                <Check className="w-7 h-7 text-[#198DA7]" />
+                <div className="text-start">
+                  <p className="text-md font-bold text-gray-900">{`Automated email sequences`}</p>
+                </div>
               </div>
             </div>
           </div>

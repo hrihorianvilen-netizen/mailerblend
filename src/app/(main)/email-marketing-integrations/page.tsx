@@ -121,7 +121,7 @@ export default function IntegrationPage() {
                 href="pricing"
                 className="inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200"
               >
-                View Pricing & Plan
+                View Pricing & Plans
               </Link>
             </div>
             <div className="relative flex justify-center items-center">
@@ -217,17 +217,17 @@ export default function IntegrationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="#"
+                href="contact"
                 className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200"
               >
-                Build your Own
+                Contact Us
               </Link>
-              <Link
+              {/* <Link
                 href="#"
                 className="bg-white text-primary  px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200"
               >
                 Open an Email
-              </Link>
+              </Link> */}
             </div>
           </div>
         </Container>

@@ -203,8 +203,8 @@ export default function DedicatedIpPage() {
               <Link href='/signup' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
                 Sign Up For Free
               </Link>
-              <Link href="#" className="inline-flex items-center gap-2 bg-gray-100 text-gray-900 border border-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
-                Request A Quote
+              <Link href="contact" className="inline-flex items-center gap-2 bg-gray-100 text-gray-900 border border-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+                Contact Us
               </Link>
             </div>
           </div>

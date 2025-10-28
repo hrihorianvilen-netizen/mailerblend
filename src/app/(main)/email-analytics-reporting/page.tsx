@@ -256,8 +256,8 @@ export default function ReportingAnalyticsPage() {
 
             {/* CTA Button */}
             <div className="mb-16">
-              <Link href="signup" className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
-                Try for free
+              <Link href="pricing" className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+                view pricing & plans
               </Link>
             </div>
 

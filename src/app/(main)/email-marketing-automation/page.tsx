@@ -29,9 +29,9 @@ export default function MarketingAutomationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Link href="signup" className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">Create an account</Link>
-              <Link href="#" className='inline-flex items-center gap-2 bg-white text-gray-900 border border-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base'>
+              {/* <Link href="#" className='inline-flex items-center gap-2 bg-white text-gray-900 border border-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base'>
                 Talk to Sales
-              </Link>
+              </Link> */}
             </div>
 
             {/* Hero Image */}

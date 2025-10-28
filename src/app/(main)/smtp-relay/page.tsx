@@ -23,10 +23,7 @@ export default function SmtpRelayPage() {
 
             <div className="flex gap-4">
               <Link href='/pricing' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
-                Get Started
-              </Link>
-              <Link href="#" className="inline-flex items-center gap-2 bg-gray-100 text-gray-900 border border-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
-                Get A Custom Email Plan
+                view pricing & plans
               </Link>
             </div>
           </div>
@@ -309,11 +306,8 @@ export default function SmtpRelayPage() {
             </h2>
 
             <div className="flex gap-4 justify-center">
-              <Link href='/signup' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
-                Sign Up For Free
-              </Link>
-              <Link href="contact" className="inline-flex items-center gap-2 bg-gray-100 text-gray-900 border border-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
-                Contact Us
+              <Link href='/pricing' className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy transition-all duration-200 text-sm sm:text-base">
+                view pricing & plans
               </Link>
             </div>
           </div>
