@@ -35,6 +35,18 @@ export default function PricingPage() {
     return `${Math.round(convertedPrice)}${currencySymbols[currency]}`;
   };
 
+  // Function to format price with decimals (for discounted prices)
+  const formatPriceWithDecimals = (priceUSD: number): { whole: string; decimal: string; symbol: string } => {
+    const convertedPrice = priceUSD * currencyRates[currency];
+    const whole = Math.floor(convertedPrice);
+    const decimal = Math.round((convertedPrice - whole) * 100);
+    return {
+      whole: whole.toString(),
+      decimal: decimal > 0 ? decimal.toString().padStart(2, '0') : '',
+      symbol: currencySymbols[currency]
+    };
+  };
+
   const emailPricingTiers = [
     {
       name: 'Free',
@@ -239,12 +251,50 @@ export default function PricingPage() {
                     </div>
                   )}
 
+                  {billingPeriod === 'annual' && tier.price > 0 && (
+                    <div className={`absolute -top-3 ${tier.highlighted ? 'right-4' : 'left-1/2 -translate-x-1/2'} bg-[#7DD3C0] text-[#3D4F6D] px-4 py-1 rounded-full text-xs font-semibold uppercase`}>
+                      Get 30% off
+                    </div>
+                  )}
+
                   <div className="mb-6">
-                    <div className="mb-2">
-                      <span className={`text-5xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                        {formatPrice(tier.price)}
-                      </span>
-                      <span className={`text-sm ml-1 ${tier.highlighted ? 'text-white/80' : 'text-gray-500'}`}>
+                    <div className="mb-2 flex items-start">
+                      {billingPeriod === 'annual' ? (
+                        <>
+                          {(() => {
+                            const priceData = formatPriceWithDecimals(tier.price * 0.7);
+                            return (
+                              <>
+                                <span className={`text-5xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                                  {priceData.symbol}{priceData.whole}
+                                </span>
+                                {priceData.decimal && (
+                                  <>
+                                    <span className={`text-2xl font-bold mt-1 ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>.</span>
+                                    <span className={`inline-flex items-center justify-center w-9 h-9 text-sm font-bold rounded  ${
+                                      tier.highlighted
+                                        ? 'bg-white/20 border-white/40 text-white'
+                                        : 'bg-gray-100 border-gray-300 text-gray-900'
+                                    }`}>
+                                      {priceData.decimal}
+                                    </span>
+                                  </>
+                                )}
+                              </>
+                            );
+                          })()}
+                        </>
+                      ) : (
+                        <>
+                          <span className={`text-5xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                            {currencySymbols[currency]}
+                          </span>
+                          <span className={`text-5xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                            {Math.round(tier.price * currencyRates[currency])}
+                          </span>
+                        </>
+                      )}
+                      <span className={`text-sm ml-1 mt-2 ${tier.highlighted ? 'text-white/80' : 'text-gray-500'}`}>
                         /{tier.period}
                       </span>
                     </div>
